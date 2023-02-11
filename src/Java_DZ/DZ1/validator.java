@@ -52,4 +52,13 @@ public class validator {
             }
         }
     }
+
+    static public void print1DArray(String[] arr){
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            if (i == arr.length - 1) System.out.printf("%s", arr[i]);
+            else System.out.printf("%s, ", arr[i]);
+        }
+        System.out.println("]");
+    }
 }
