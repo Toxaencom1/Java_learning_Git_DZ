@@ -21,7 +21,7 @@ public class Task_2 {
     public static void writeToFile(String data) {
         try {
             String pathProject = System.getProperty("user.dir");
-            String pathFile = pathProject.concat("\\src\\Java_DZ\\DZ2\\file.txt");
+            String pathFile = pathProject.concat("\\src\\Java_DZ\\DZ2\\Task2_file.txt");
             File file = new File(pathFile);
 //            System.out.println(file.getAbsolutePath());
 //            System.out.println(pathFile);
@@ -40,7 +40,7 @@ public class Task_2 {
         StringBuilder stb = arrToStringBuilder(arr);
         StringBuilder result = arrToStringBuilder(arr);
         StringBuilder stb2 = new StringBuilder();
-        System.out.println(stb+" = first\n");
+        System.out.println(stb+" = Source array\n");
         stb.append(" = Source array");
         result.append(" = Source array\n");
 
