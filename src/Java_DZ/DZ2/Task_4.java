@@ -1,6 +1,5 @@
 package Java_DZ.DZ2;
 
-import Java_DZ.DZ2.validator;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -102,10 +101,10 @@ public class Task_4 {
         double y = validator.validateDouble();
         exitDouble0(y);
         double result = solution(x, y, operator);
-        sb.append(String.valueOf(x))
+        sb.append(x)
                 .append(" ").append(operator).append(" ")
-                .append(String.valueOf(y)).append(" = ")
-                .append(String.valueOf(result));
+                .append(y).append(" = ")
+                .append(result);
         writeToFile(sb.toString());
         while (true) {
             sb.replace(0,sb.length(),String.valueOf(result));
@@ -118,12 +117,12 @@ public class Task_4 {
                 result = validator.validateDouble();
                 operator = validator.valOperator();
                 exitString0(operator);
-                sb.append(String.valueOf(result));
+                sb.append(result);
             }
             double c = validator.validateDouble();
             exitDouble0(c);
             result = solution(result, c, operator);
-            sb.append(" ").append(operator).append(" ").append(String.valueOf(c)).append(" = ").append(result);
+            sb.append(" ").append(operator).append(" ").append(c).append(" = ").append(result);
             writeToFile(sb.toString());
         }
     }
