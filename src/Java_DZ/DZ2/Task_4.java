@@ -94,16 +94,16 @@ public class Task_4 {
     public static void main(String[] args) {
         System.out.println("Приложение Калькулятор! Для сброса введите символ 'с' для выхода '0'.");
         StringBuilder sb = new StringBuilder();
-        double x = validator.validateDouble();
-        exitDouble0(x);
+        double firstValue = validator.validateDouble();
+        exitDouble0(firstValue);
         String operator = validator.valOperator();
         exitString0(operator);
-        double y = validator.validateDouble();
-        exitDouble0(y);
-        double result = solution(x, y, operator);
-        sb.append(x)
+        double secondValue = validator.validateDouble();
+        exitDouble0(secondValue);
+        double result = solution(firstValue, secondValue, operator);
+        sb.append(firstValue)
                 .append(" ").append(operator).append(" ")
-                .append(y).append(" = ")
+                .append(secondValue).append(" = ")
                 .append(result);
         writeToFile(sb.toString());
         while (true) {
@@ -119,10 +119,10 @@ public class Task_4 {
                 exitString0(operator);
                 sb.append(result);
             }
-            double c = validator.validateDouble();
-            exitDouble0(c);
-            result = solution(result, c, operator);
-            sb.append(" ").append(operator).append(" ").append(c).append(" = ").append(result);
+            double nextValue = validator.validateDouble();
+            exitDouble0(nextValue);
+            result = solution(result, nextValue, operator);
+            sb.append(" ").append(operator).append(" ").append(nextValue).append(" = ").append(result);
             writeToFile(sb.toString());
         }
     }
