@@ -6,14 +6,10 @@ import java.util.*;
 
 public class Task_3 {
     public static Integer findMin(List<Integer> list){
-        List<Integer> list_ = new ArrayList<>(list);
-        Collections.sort(list_);
-        return list_.get(0);
+        return Collections.min(list);
     }
     public static Integer findMax(List<Integer> list) {
-        List<Integer> list_ = new ArrayList<>(list);
-        Collections.sort(list_);
-        return list_.get(list_.size() - 1);
+        return Collections.max(list);
     }
 
     public static double findAverage(List<Integer> list) {

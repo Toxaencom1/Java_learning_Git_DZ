@@ -5,7 +5,7 @@ import java.util.List;
 
 //1.Реализовать алгоритм сортировки слиянием
 public class Task_1 {
-    static public List<Integer> mergeList(List<Integer> left, List<Integer> right) {
+    public static List<Integer> mergeList(List<Integer> left, List<Integer> right) {
         List<Integer> result = new ArrayList<>();
         int i = 0;
         int j = 0;
@@ -34,7 +34,7 @@ public class Task_1 {
     }
 
 
-    static public List<Integer> mergeSort(List<Integer> source) {
+    public static List<Integer> mergeSort(List<Integer> source) {
         int middle = (source.size()) / 2;
         List<Integer> left = source.subList(0, middle);
         List<Integer> right = source.subList(middle, source.size());
