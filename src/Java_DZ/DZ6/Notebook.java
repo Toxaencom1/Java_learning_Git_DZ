@@ -2,7 +2,7 @@ package Java_DZ.DZ6;
 
 
 public class Notebook {
-    private static int idStart = 0;
+
     final int id;
     String manufacturer;
     String model;
@@ -13,7 +13,7 @@ public class Notebook {
     int RAM;
     int HDD;
 
-    Notebook() {
+    Notebook() {   // Для тестирования при необходимости быстро добавить
         id = ++idStart;
         manufacturer = "unknown";
         model = "unknown";
@@ -24,6 +24,7 @@ public class Notebook {
         RAM = 0;
         HDD = 0;
     }
+
     Notebook(String manufacturer, String model, double screenSize, String discretVideoAdapter,
              int cpuCores, double cpu, int RAM, int HDD) {
         id = ++idStart;
@@ -39,15 +40,16 @@ public class Notebook {
 
     @Override
     public String toString() {
-        return  "manufacturer='" + manufacturer.toUpperCase() + '\'' +
-                ", model='" + model.toUpperCase() + '\'' +
-                ", screenSize=" + screenSize +
-                ", discretVideoAdapter='" + discretVideoAdapter.toUpperCase() + '\'' +
-                ", cpuCores=" + cpuCores +
-                ", cpu=" + cpu + "Ghz" +
-                ", RAM=" + RAM + "Gb" +
-                ", HDD/SSD=" + HDD + "Gb";
+        return "Производитель = '" + manufacturer.toUpperCase() + '\'' +
+                ", Модель = '" + model.toUpperCase() + '\'' +
+                ", Размер монитора =" + screenSize +
+                ", Дискретная видеокарта ='" + discretVideoAdapter.toUpperCase() + '\'' +
+                ", Количество ядер ЦП =" + cpuCores +
+                ", Частота ядер =" + cpu + "Ghz" +
+                ", RAM = " + RAM + "Gb" +
+                ", HDD/SSD = " + HDD + "Gb";
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -58,12 +60,15 @@ public class Notebook {
         }
         Notebook notebook = (Notebook) obj;
         return manufacturer.equals(notebook.manufacturer) && model.equals(notebook.model) &&
-                screenSize==notebook.screenSize && discretVideoAdapter.equals(notebook.discretVideoAdapter)&&
+                screenSize == notebook.screenSize && discretVideoAdapter.equals(notebook.discretVideoAdapter) &&
                 cpuCores == notebook.cpuCores && cpu == notebook.cpu && RAM == notebook.RAM &&
                 HDD == notebook.HDD;
     }
+
     public int hashCode() {
-        return manufacturer.hashCode() + 19 * model.hashCode() + 7 * discretVideoAdapter.hashCode()+11*RAM+3*HDD+13*cpuCores+
-                17*(int)cpu+5*(int)screenSize;
+        return manufacturer.hashCode() + 19 * model.hashCode() + 7 * discretVideoAdapter.hashCode() + 11 * RAM + 3 * HDD + 13 * cpuCores +
+                17 * (int) cpu + 5 * (int) screenSize;
     }
+
+    private static int idStart = 0;
 }

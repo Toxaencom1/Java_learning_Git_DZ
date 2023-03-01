@@ -3,7 +3,7 @@ package Java_DZ.DZ6;
 import java.util.Scanner;
 
 public class Validator {
-    public static Integer valMenuChoice(String choice, int till){
+    public static Integer valMenuChoice(String choice, int till) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
@@ -11,16 +11,17 @@ public class Validator {
                 if (Integer.parseInt(choice) > 0 && Integer.parseInt(choice) <= till) {//
                     return Integer.parseInt(choice);
                 } else {
-                    System.out.printf("Введите от 1 до %s: ",till);
+                    System.out.printf("Введите от 1 до %s: ", till);
                     choice = scanner.nextLine();
                 }
             } catch (Exception ex) {
-                System.out.printf("Введите от 1 до %s: ",till);
+                System.out.printf("Введите от 1 до %s: ", till);
                 choice = scanner.nextLine();
             }
         }
     }
-    public static Integer valInt(String choice){
+
+    public static Integer valInt(String choice) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
@@ -37,7 +38,8 @@ public class Validator {
             }
         }
     }
-    public static double valDouble(String choice){
+
+    public static double valDouble(String choice) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
@@ -54,8 +56,9 @@ public class Validator {
             }
         }
     }
-    public static String emergency_exit(String string){
-        if(string.equals("exit")){
+
+    public static String emergency_exit(String string) {
+        if (string.equals("exit")) {
             System.exit(0);
         }
         return string;
