@@ -3,19 +3,19 @@ package Java_DZ.DZ6;
 import java.util.Scanner;
 
 public class Validator {
-    public static Integer valMenuChoice(String choice){
+    public static Integer valMenuChoice(String choice, int till){
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
                 emergency_exit(choice);
-                if (Integer.parseInt(choice) > 0 && Integer.parseInt(choice) <= 2) {//
+                if (Integer.parseInt(choice) > 0 && Integer.parseInt(choice) <= till) {//
                     return Integer.parseInt(choice);
                 } else {
-                    System.out.print("Введите 1 или 2: ");
+                    System.out.printf("Введите от 1 до %s: ",till);
                     choice = scanner.nextLine();
                 }
             } catch (Exception ex) {
-                System.out.print("Введите 1 или 2: ");
+                System.out.printf("Введите от 1 до %s: ",till);
                 choice = scanner.nextLine();
             }
         }

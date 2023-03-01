@@ -46,7 +46,7 @@ public class Notebook {
                 ", cpuCores=" + cpuCores +
                 ", cpu=" + cpu + "Ghz" +
                 ", RAM=" + RAM + "Gb" +
-                ", HDD=" + HDD + "Gb";
+                ", HDD/SSD=" + HDD + "Gb";
     }
     @Override
     public boolean equals(Object obj) {

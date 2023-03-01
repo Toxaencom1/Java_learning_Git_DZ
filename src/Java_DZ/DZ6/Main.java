@@ -40,8 +40,11 @@ public class Main {
 
         HashSet<Notebook> notebooks = new HashSet<>(Arrays.asList(n1, n2, n3, n4, n5, n6, n7, n8, n9));
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Здравствуй пользователь! Это поиск ноутбуков по фильтру ");
+        Menu.showMenu(Menu.filterChoiceMenu());
+        int choiceFilter = Validator.valMenuChoice(scanner.nextLine(), 3);
         int count = 1;
-        while (true){
+        while (true) {
             System.out.println("\nЗадайте параметры фильтрации! Введите \"0\" если параметр не нужен ");
             System.out.print("Фильтр по производителю: ");
             String manufacturer = Validator.emergency_exit(scanner.nextLine().toLowerCase().trim());
@@ -60,21 +63,45 @@ public class Main {
             System.out.print("Фильтр по количеству памяти ЖД: ");
             int HDD = Validator.valInt(scanner.nextLine());
 
-            System.out.println();
-            for (Notebook item : notebooks) {
-                if ((item.manufacturer.equals(manufacturer) || manufacturer.equals("0"))
-                        && (item.model.equals(model) || model.equals("0")) && item.screenSize >= screenSize &&
-                        (item.discretVideoAdapter.equals(discretVideoAdapter) || discretVideoAdapter.equals("0"))
-                        && item.cpuCores >= cpuCores
-                        && item.cpu >= cpu && item.RAM >= RAM && item.HDD >= HDD) {
-                    System.out.printf("%d - %s\n",count,item);
-                    count++;
+            if (choiceFilter == 1) {
+                System.out.println();
+                for (Notebook item : notebooks) {
+                    if ((item.manufacturer.equals(manufacturer) || manufacturer.equals("0"))
+                            && (item.model.equals(model) || model.equals("0")) && item.screenSize >= screenSize &&
+                            (item.discretVideoAdapter.equals(discretVideoAdapter) || discretVideoAdapter.equals("0"))
+                            && item.cpuCores >= cpuCores
+                            && item.cpu >= cpu && item.RAM >= RAM && item.HDD >= HDD) {
+                        System.out.printf("%d - %s\n", count, item);
+                        count++;
+                    }
                 }
+                count = 1;
+            } else if (choiceFilter == 2) {
+                System.out.println();
+
+                for (Notebook item : notebooks) {
+                    if (cpuCores==0){cpuCores=100;}
+                    if (screenSize==0){screenSize=100;}
+                    if (RAM==0){RAM=1000;}
+                    if (HDD==0){HDD=10000;}
+                    if (cpu==0){cpu=100.0;}
+                    if ((item.manufacturer.equals(manufacturer) || manufacturer.equals("0"))
+                            && (item.model.equals(model) || model.equals("0")) && item.screenSize <= screenSize &&
+                            (item.discretVideoAdapter.equals(discretVideoAdapter) || discretVideoAdapter.equals("0"))
+                            && item.cpuCores <= cpuCores
+                            && item.cpu <= cpu && item.RAM <= RAM && item.HDD <= HDD) {
+                        System.out.printf("%d - %s\n", count, item);
+                        count++;
+                    }
+                }
+                count = 1;
+            } else if (choiceFilter == 3) {
+                System.exit(0);
             }
-            count = 1;
-            Menu.showMenu(Menu.mainMenu());
-            int choice = Validator.valMenuChoice(scanner.nextLine());
-            if (choice == 2){
+
+            Menu.showMenu(Menu.continueMenu());
+            int choice = Validator.valMenuChoice(scanner.nextLine(), 2);
+            if (choice == 2) {
                 System.exit(0);
             }
         }

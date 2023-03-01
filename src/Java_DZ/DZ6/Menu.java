@@ -5,8 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Menu {
-    public static List<String> mainMenu(){
+    public static List<String> continueMenu(){
         return new ArrayList<>(Arrays.asList("Продолжить","Выход"));
+    }
+    public static List<String> filterChoiceMenu(){
+        return new ArrayList<>(Arrays.asList("Искать значения характеристик ноутбука больше ...",
+                "Искать значения характеристик ноутбука меньше ...","Выход"));
     }
     public static void showMenu(List<String> menuList){
         System.out.println();
