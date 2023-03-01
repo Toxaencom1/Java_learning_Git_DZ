@@ -1,5 +1,6 @@
 package Java_DZ.DZ6;
 
+import java.io.IOException;
 import java.util.*;
 
 
@@ -17,7 +18,7 @@ import java.util.*;
 Отфильтровать ноутбуки из первоначального множества и вывести проходящие по условиям.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Notebook n1 = new Notebook("MSI", "Vector", 15.6, "RTX3080Ti",
                 14, 2.5, 16, 1000);
         Notebook n2 = new Notebook("ASUS", "ROG", 13.4, "RTX3050",
@@ -43,21 +44,21 @@ public class Main {
         while (true){
             System.out.println("\nЗадайте параметры фильтрации! Введите \"0\" если параметр не нужен ");
             System.out.print("Фильтр по производителю: ");
-            String manufacturer = scanner.nextLine().toLowerCase().trim();
+            String manufacturer = Validator.emergency_exit(scanner.nextLine().toLowerCase().trim());
             System.out.print("Фильтр по модели: ");
-            String model = scanner.nextLine().toLowerCase().trim();
+            String model = Validator.emergency_exit(scanner.nextLine().toLowerCase().trim());
             System.out.print("Фильтр по дискретному видео адаптеру: ");
-            String discretVideoAdapter = scanner.nextLine().toLowerCase().trim();
+            String discretVideoAdapter = Validator.emergency_exit(scanner.nextLine().toLowerCase().trim());
             System.out.print("Фильтр по размеру монитора: ");
-            double screenSize = scanner.nextDouble();
+            double screenSize = Validator.valDouble(scanner.nextLine());
             System.out.print("Фильтр по количеству ядер: ");
-            int cpuCores = scanner.nextInt();
+            int cpuCores = Validator.valInt(scanner.nextLine());
             System.out.print("Фильтр по частоте процессора: ");
-            double cpu = scanner.nextDouble();
+            double cpu = Validator.valDouble(scanner.nextLine());
             System.out.print("Фильтр по количеству оперативной памяти: ");
-            int RAM = scanner.nextInt();
+            int RAM = Validator.valInt(scanner.nextLine());
             System.out.print("Фильтр по количеству памяти ЖД: ");
-            int HDD = scanner.nextInt();
+            int HDD = Validator.valInt(scanner.nextLine());
 
             System.out.println();
             for (Notebook item : notebooks) {
@@ -72,7 +73,7 @@ public class Main {
             }
             count = 1;
             Menu.showMenu(Menu.mainMenu());
-            int choice = scanner.nextInt();
+            int choice = Validator.valMenuChoice(scanner.nextLine());
             if (choice == 2){
                 System.exit(0);
             }
