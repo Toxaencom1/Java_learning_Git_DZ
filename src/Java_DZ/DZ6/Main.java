@@ -73,7 +73,8 @@ public class Main {
                         notebookMap.put(3, Double.toString(screenSize));
                     }
                     case 4 -> {
-                        System.out.print("Фильтр по дискретному видео адаптеру: RTX3080Ti, RTX3050, Отсутствует ...");
+                        System.out.println("Например RTX3080Ti, RTX3050, Отсутствует ...");
+                        System.out.print("Фильтр по дискретному видео адаптеру: ");
                         String discretVideoAdapter = Validator.emergency_exit(scanner.nextLine().toLowerCase().trim());
                         notebookMap.put(4, discretVideoAdapter);
                     }
