@@ -37,16 +37,25 @@ public class Main {
                 4, 2.4, 8, 512);
         Notebook n9 = new Notebook("ASUS", "TUF", 15.6, "RTX3060",
                 8, 2.0, 16, 512);
+        System.out.println(n1.getId());
 
         HashSet<Notebook> notebooks = new HashSet<>(Arrays.asList(n1, n2, n3, n4, n5, n6, n7, n8, n9));
+        System.out.println("Здравствуй пользователь! Это поиск ноутбуков по фильтру ");
+        filter(notebooks);
+
+    }
+    static void filter(HashSet<Notebook> notebooks ){
         HashMap<Integer, String> notebookMap = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Здравствуй пользователь! Это поиск ноутбуков по фильтру ");
         int count = 1;
         while (true) {
             boolean flag1 = true;
             Menu.showMenu(Menu.filterChoiceMenu());
             int choiceFilter = Validator.valMenuChoice(scanner.nextLine(), 3);
+            if (choiceFilter == 3) {
+                scanner.close();
+                System.exit(0);
+            }
             System.out.println("\nЗадайте параметры фильтрации! Введите \"0\" " +
                     "если параметр не нужен или exit для выхода ");
             notebookMap.put(1, "0"); notebookMap.put(2, "0"); notebookMap.put(3, "0"); notebookMap.put(4, "0");
@@ -107,14 +116,14 @@ public class Main {
             if (choiceFilter == 1) {
                 System.out.println();
                 for (Notebook item : notebooks) {
-                    if ((item.manufacturer.equals(notebookMap.get(1)) || notebookMap.get(1).equals("0"))
-                            && (item.model.equals(notebookMap.get(2)) || notebookMap.get(2).equals("0"))
-                            && item.screenSize >= Double.parseDouble(notebookMap.get(3))
-                            && (item.discretVideoAdapter.equals(notebookMap.get(4)) || notebookMap.get(4).equals("0"))
-                            && item.cpuCores >= Integer.parseInt(notebookMap.get(5))
-                            && item.cpu >= Double.parseDouble(notebookMap.get(6))
-                            && item.RAM >= Integer.parseInt(notebookMap.get(7))
-                            && item.HDD >= Integer.parseInt(notebookMap.get(8))) {
+                    if ((item.getManufacturer().equals(notebookMap.get(1)) || notebookMap.get(1).equals("0"))
+                            && (item.getModel().equals(notebookMap.get(2)) || notebookMap.get(2).equals("0"))
+                            && item.getScreenSize() >= Double.parseDouble(notebookMap.get(3))
+                            && (item.getDiscretVideoAdapter().equals(notebookMap.get(4)) || notebookMap.get(4).equals("0"))
+                            && item.getCpuCores() >= Integer.parseInt(notebookMap.get(5))
+                            && item.getCpu() >= Double.parseDouble(notebookMap.get(6))
+                            && item.getRAM() >= Integer.parseInt(notebookMap.get(7))
+                            && item.getHDD() >= Integer.parseInt(notebookMap.get(8))) {
                         flag2 = true;
                         System.out.printf("%d - %s\n", count, item);
                         count++;
@@ -132,14 +141,14 @@ public class Main {
                 if (notebookMap.get(7).equals("0")) {notebookMap.put(7,"200");}
                 if (notebookMap.get(8).equals("0")) {notebookMap.put(8,"10000");}
                 for (Notebook item : notebooks) {
-                    if ((item.manufacturer.equals(notebookMap.get(1)) || notebookMap.get(1).equals("0"))
-                            && (item.model.equals(notebookMap.get(2)) || notebookMap.get(2).equals("0"))
-                            && item.screenSize <= Double.parseDouble(notebookMap.get(3))
-                            && (item.discretVideoAdapter.equals(notebookMap.get(4)) || notebookMap.get(4).equals("0"))
-                            && item.cpuCores <= Integer.parseInt(notebookMap.get(5))
-                            && item.cpu <= Double.parseDouble(notebookMap.get(6))
-                            && item.RAM <= Integer.parseInt(notebookMap.get(7))
-                            && item.HDD <= Integer.parseInt(notebookMap.get(8))) {
+                    if ((item.getManufacturer().equals(notebookMap.get(1)) || notebookMap.get(1).equals("0"))
+                            && (item.getModel().equals(notebookMap.get(2)) || notebookMap.get(2).equals("0"))
+                            && item.getScreenSize() <= Double.parseDouble(notebookMap.get(3))
+                            && (item.getDiscretVideoAdapter().equals(notebookMap.get(4)) || notebookMap.get(4).equals("0"))
+                            && item.getCpuCores() <= Integer.parseInt(notebookMap.get(5))
+                            && item.getCpu() <= Double.parseDouble(notebookMap.get(6))
+                            && item.getRAM() <= Integer.parseInt(notebookMap.get(7))
+                            && item.getHDD() <= Integer.parseInt(notebookMap.get(8))) {
                         flag2 = true;
                         System.out.printf("%d - %s\n", count, item);
                         count++;
@@ -149,9 +158,6 @@ public class Main {
                     System.out.println("Ноутбуков с такими параметрами нет (((");
                 }
                 count = 1;
-            } else if (choiceFilter == 3) {
-                scanner.close();
-                System.exit(0);
             }
             Menu.showMenu(Menu.continueMenu());
             int choice = Validator.valMenuChoice(scanner.nextLine(), 2);

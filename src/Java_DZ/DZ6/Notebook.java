@@ -2,19 +2,19 @@ package Java_DZ.DZ6;
 
 
 public class Notebook {
-
-    final int id;
-    String manufacturer;
-    String model;
-    double screenSize;
-    String discretVideoAdapter;
-    int cpuCores;
-    double cpu;
-    int RAM;
-    int HDD;
+    private final int id;
+    private String manufacturer;
+    private String model;
+    private double screenSize;
+    private String discretVideoAdapter;
+    private int cpuCores;
+    private double cpu;
+    private int RAM;
+    private int HDD;
+    private static int idStart = 0;
 
     Notebook() {   // Для тестирования при необходимости быстро добавить
-        id = ++idStart;
+        id = idStart++;
         manufacturer = "unknown";
         model = "unknown";
         screenSize = 0;
@@ -70,5 +70,70 @@ public class Notebook {
                 17 * (int) cpu + 5 * (int) screenSize;
     }
 
-    private static int idStart = 0;
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public double getScreenSize() {
+        return screenSize;
+    }
+
+    public void setScreenSize(double screenSize) {
+        this.screenSize = screenSize;
+    }
+
+    public String getDiscretVideoAdapter() {
+        return discretVideoAdapter;
+    }
+
+    public void setDiscretVideoAdapter(String discretVideoAdapter) {
+        this.discretVideoAdapter = discretVideoAdapter;
+    }
+
+    public int getCpuCores() {
+        return cpuCores;
+    }
+
+    public void setCpuCores(int cpuCores) {
+        this.cpuCores = cpuCores;
+    }
+
+    public double getCpu() {
+        return cpu;
+    }
+
+    public void setCpu(double cpu) {
+        this.cpu = cpu;
+    }
+
+    public int getRAM() {
+        return RAM;
+    }
+
+    public void setRAM(int RAM) {
+        this.RAM = RAM;
+    }
+
+    public int getHDD() {
+        return HDD;
+    }
+
+    public void setHDD(int HDD) {
+        this.HDD = HDD;
+    }
+    public int getId() {
+        return id;
+    }
 }
