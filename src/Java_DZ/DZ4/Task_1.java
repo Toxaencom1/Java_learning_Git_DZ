@@ -7,8 +7,8 @@ import java.util.LinkedList;
 public class Task_1 {
     public static LinkedList<Integer> reverse(LinkedList<Integer> linkedList){
         LinkedList<Integer> linkedListReverse = new LinkedList<>();
-        while (linkedList.size()>0){
-            linkedListReverse.addFirst(linkedList.pop());
+        for (Integer value:linkedList) {
+            linkedListReverse.addFirst(value);
         }
         return linkedListReverse;
     }
