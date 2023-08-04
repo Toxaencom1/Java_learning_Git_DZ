@@ -1,0 +1,236 @@
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git checkout -b DZ2_1
+Switched to a new branch 'DZ2_1'
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git branch
+* DZ2_1
+  master
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git revert 232f09546a02042aac0da8ea3a35fc7bcf611f31
+[DZ2_1 a94b853] Revert "translate validator strings for third task DZ5" revert first random commit
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git log
+commit a94b853b75fef4404bca9a098f0444135e4f5719 (HEAD -> DZ2_1)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 12:43:45 2023 +0600
+
+    Revert "translate validator strings for third task DZ5" revert first random commit
+
+    This reverts commit 232f09546a02042aac0da8ea3a35fc7bcf611f31.
+...
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git diff 1ebee7c71c a94b853b
+diff --git a/src/Java_DZ/DZ5/Task_3.java b/src/Java_DZ/DZ5/Task_3.java
+index 5497809..f212ab5 100644
+--- a/src/Java_DZ/DZ5/Task_3.java
++++ b/src/Java_DZ/DZ5/Task_3.java
+@@ -7,17 +7,17 @@ import java.util.Scanner;
+
+ //*Реализовать алгоритм пирамидальной сортировки (HeapSort)
+ public class Task_3 {
+-    public static int validatePosInt() {
+-        System.out.print("Enter 'n' quantity of array elements: ");
++    static int validatePosInt() {
++        System.out.print("Введите n число элементов: ");
+         while (true) {
+             try {
+                 Scanner scanner = new Scanner(System.in);
+                 int n = scanner.nextInt();
+                 if (n > 0 && n < 2_147_483_647) {
+                     return n;
+-                } else System.out.print("Enter correct number: ");
++                } else System.out.print("Введи коректное число: ");
+             } catch (Exception ex) {
+-                System.out.print("Enter the 'NUMBER!', more than zero: ");
++                System.out.print("Введи 'число!', больше нуля: ");
+             }
+         }
+     }
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git push -u origin DZ2_1                     
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 673 bytes | 673.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+remote:
+remote: Create a pull request for 'DZ2_1' on GitHub by visiting:
+remote:      https://github.com/Toxaencom1/Java_learning_Git_DZ/pull/new/DZ2_1
+remote:
+To https://github.com/Toxaencom1/Java_learning_Git_DZ.git
+ * [new branch]      DZ2_1 -> DZ2_1
+branch 'DZ2_1' set up to track 'origin/DZ2_1'.
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git revert e874cce59a574b652dda25a640465b844b495279
+[DZ2_1 e1b26ea] Revert "Rename variable for Task_4" revert second random commit
+ 1 file changed, 11 insertions(+), 11 deletions(-)
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git log
+commit e1b26ea4a27b6004a2e79dea4624af4af0820a35 (HEAD -> DZ2_1)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 13:08:33 2023 +0600
+
+    Revert "Rename variable for Task_4" revert second random commit
+    
+    This reverts commit e874cce59a574b652dda25a640465b844b495279.
+
+commit a94b853b75fef4404bca9a098f0444135e4f5719 (origin/DZ2_1)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 12:43:45 2023 +0600
+
+    Revert "translate validator strings for third task DZ5" revert first random commit
+    
+    This reverts commit 232f09546a02042aac0da8ea3a35fc7bcf611f31.
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git diff a94b853b75fef e1b26ea4a27b
+diff --git a/src/Java_DZ/DZ2/Task_4.java b/src/Java_DZ/DZ2/Task_4.java
+index ef71948..66c4e4a 100644
+--- a/src/Java_DZ/DZ2/Task_4.java
++++ b/src/Java_DZ/DZ2/Task_4.java
+@@ -94,16 +94,16 @@ public class Task_4 {
+    ...
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git push -u origin DZ2_1
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 663 bytes | 663.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/Toxaencom1/Java_learning_Git_DZ.git
+   a94b853..e1b26ea  DZ2_1 -> DZ2_1
+branch 'DZ2_1' set up to track 'origin/DZ2_1'.
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git revert 33e84ff042138cde365f0f0d86c07b54bc7c3f98
+[DZ2_1 02e0ee8] Revert "Fix some bugs for Task_4" revert third random commit
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git log
+commit 02e0ee8bc257776283f0a5b06e363f3b482db3e5 (HEAD -> DZ2_1)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 13:23:38 2023 +0600
+
+    Revert "Fix some bugs for Task_4" revert third random commit
+    
+    This reverts commit 33e84ff042138cde365f0f0d86c07b54bc7c3f98.
+
+commit e1b26ea4a27b6004a2e79dea4624af4af0820a35 (origin/DZ2_1)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 13:08:33 2023 +0600
+
+    Revert "Rename variable for Task_4" revert second random commit
+
+    This reverts commit e874cce59a574b652dda25a640465b844b495279.
+
+commit a94b853b75fef4404bca9a098f0444135e4f5719
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 12:43:45 2023 +0600
+
+    Revert "translate validator strings for third task DZ5" revert first random commit
+
+    This reverts commit 232f09546a02042aac0da8ea3a35fc7bcf611f31.
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git diff e1b26ea4a27b 02e0ee8bc
+diff --git a/src/Java_DZ/DZ2/Task_4.java b/src/Java_DZ/DZ2/Task_4.java
+index 66c4e4a..5193751 100644
+--- a/src/Java_DZ/DZ2/Task_4.java
++++ b/src/Java_DZ/DZ2/Task_4.java
+@@ -1,5 +1,6 @@
+ package Java_DZ.DZ2;
+
++import Java_DZ.DZ2.validator;
+
+ import java.io.File;
+ import java.io.FileWriter;
+@@ -101,10 +102,10 @@ public class Task_4 {
+         double y = validator.validateDouble();
+...
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git reset --soft e1b26ea4a27b
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git status
+On branch DZ2_1
+Your branch is up to date with 'origin/DZ2_1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   src/Java_DZ/DZ2/Task_4.java
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git restore --staged src/Java_DZ/DZ2/Task_4.java
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git status                                      
+On branch DZ2_1
+Your branch is up to date with 'origin/DZ2_1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Java_DZ/DZ2/Task_4.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git restore src/Java_DZ/DZ2/Task_4.java         
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git status                             
+On branch DZ2_1
+Your branch is up to date with 'origin/DZ2_1'.
+
+nothing to commit, working tree clean
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git log                                         
+commit e1b26ea4a27b6004a2e79dea4624af4af0820a35 (HEAD -> DZ2_1, origin/DZ2_1)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 13:08:33 2023 +0600
+
+    Revert "Rename variable for Task_4" revert second random commit
+...
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git reset a94b853b75fe                          
+Unstaged changes after reset:
+M       src/Java_DZ/DZ2/Task_4.java
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git status
+On branch DZ2_1
+Your branch is behind 'origin/DZ2_1' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Java_DZ/DZ2/Task_4.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git restore src/Java_DZ/DZ2/Task_4.java         
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git status                             
+On branch DZ2_1
+Your branch is behind 'origin/DZ2_1' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git log                                
+commit a94b853b75fef4404bca9a098f0444135e4f5719 (HEAD -> DZ2_1)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 12:43:45 2023 +0600
+
+    Revert "translate validator strings for third task DZ5" revert first random commit
+
+    This reverts commit 232f09546a02042aac0da8ea3a35fc7bcf611f31.
+
+commit 1ebee7c71c8da30317aa6f433483852223e1438b (origin/master, master)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 12:20:51 2023 +0600
+
+    add some project files to gitignore
+...
+
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git reset --hard 1ebee7c71c            
+HEAD is now at 1ebee7c add some project files to gitignore
+PS C:\Users\Toxae\IdeaProjects\Java_learning_Git_DZ> git log
+commit 1ebee7c71c8da30317aa6f433483852223e1438b (HEAD -> DZ2_1, origin/master, master)
+Author: Toxaencom1 <Toxaencom@gmail.com>
+Date:   Fri Aug 4 12:20:51 2023 +0600
+
+    add some project files to gitignore
+
+commit 931557828594613302394ff2e973850701322cab
+
+...
+git status
+On branch DZ2_1
+Your branch is behind 'origin/DZ2_1' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+
+
