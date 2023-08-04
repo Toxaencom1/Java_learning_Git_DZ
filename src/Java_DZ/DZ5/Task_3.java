@@ -7,17 +7,17 @@ import java.util.Scanner;
 
 //*Реализовать алгоритм пирамидальной сортировки (HeapSort)
 public class Task_3 {
-    public static int validatePosInt() {
-        System.out.print("Enter 'n' quantity of array elements: ");
+    static int validatePosInt() {
+        System.out.print("Введите n число элементов: ");
         while (true) {
             try {
                 Scanner scanner = new Scanner(System.in);
                 int n = scanner.nextInt();
                 if (n > 0 && n < 2_147_483_647) {
                     return n;
-                } else System.out.print("Enter correct number: ");
+                } else System.out.print("Введи коректное число: ");
             } catch (Exception ex) {
-                System.out.print("Enter the 'NUMBER!', more than zero: ");
+                System.out.print("Введи 'число!', больше нуля: ");
             }
         }
     }
