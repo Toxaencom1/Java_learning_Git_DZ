@@ -27,3 +27,17 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+.idea/modules.xml
+.idea/uiDesigner.xml
+.idea/workspace.xml
+src/Java_DZ/DZ2/test.java
+src/Java_DZ/DZ3/test.java
+src/Java_DZ/DZ5/test.java
+src/Sem1/
+src/Sem2/
+src/Sem3/
+src/Sem4/
+src/Sem5/
+src/Sem6/
+src/program.java
